@@ -13,6 +13,8 @@ header {
   align-items: center;
   padding: 10px;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
 }
 nav {
   margin-left: auto;
@@ -96,3 +98,4 @@ footer {
     margin: 0;
     text-align: center;
     }
+    
