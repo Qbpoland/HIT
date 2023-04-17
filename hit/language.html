@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Hints and tips for Geogusser</title>
+  <meta charset="utf-8" />
+  <title>Language Map</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+  <style>
+    #mapid { height: 800px; }
+  </style>
 </head>
 
 <body>
-  
   <header>
     <a href="index.html">
       <img src="img/logo.png" alt="Logo" />
@@ -22,8 +25,32 @@
       </ul>
     </nav>
   </header>
+  <div id="mapid"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+  <script>
+    var map = L.map('mapid').setView([51.505, -0.09], 2);
 
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+      maxZoom: 18,
+    }).addTo(map);
 
-  </body>
-  </html>
+    fetch('https://restcountries.com/v2/all')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(country => {
+      if (country.languages && country.languages.length > 0) {
+        var latlng = [country.latlng[0], country.latlng[1]];
+        var marker = L.marker(latlng).addTo(map);
+        marker.bindPopup(`<b>${country.name}</b><br>Language: ${country.languages[0].name}`);
+      }
+    });
+  });
+
+  </script>
+  <footer>
+    <p>&copy; 2023 Hints and tips for Geogusser. All rights reserved.</p>
+  </footer>
+</body>
+</html>
