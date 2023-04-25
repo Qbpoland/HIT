@@ -5,7 +5,46 @@
   <title>Hints and tips for Geogusser</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
+<style>
+  /* stylizowanie elementów interfejsu odtwarzacza */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* proporcjonalne ustawienie wysokości */
+    height: 0;
+  }
+  .video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 150px;
+  }
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .play-btn {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #f00;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    
+  }
+  /* stylizowanie hovera play button */
+  .play-btn:hover {
+    background-color: #d00;
+  }
+</style>
 <body>
   
   <header>
@@ -15,14 +54,29 @@
     <h1>Hints and tips for Geogusser</h1>
     <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
-
+  <div class="video-wrapper">
+    <iframe class="video-iframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="controls">
+    <button class="play-btn">&#9658;</button>
+  </div>
+  <script>
+    // skrypty obsługujące odtwarzacz
+    var videoIframe = document.querySelector('.video-iframe');
+    var playBtn = document.querySelector('.play-btn');
+    
+    playBtn.addEventListener('click', function() {
+      if (videoIframe.contentWindow.postMessage) {
+        videoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      }
+    });
+  </script>
 
 
 

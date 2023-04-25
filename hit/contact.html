@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hints and tips for Geogusser</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  
+  <header>
+    <a href="index.html">
+      <img src="img/logo.png" alt="Logo" />
+    </a>
+    <h1>Hints and tips for Geogusser</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+    <style>
+      .main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .subtitle {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .paragraph {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+
+      .link {
+        color: blue;
+        text-decoration: none;
+      }
+
+      .form-label {
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      .form-button {
+        background-color: blue;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .form-button:hover {
+        background-color: #0066cc;
+      }
+    </style>
+  </head>
+    <h1 class="title">Contact Us</h1>
+    <p class="paragraph">Please feel free to contact us with any questions or feedback you may have. You can reach us by phone, email, or by filling out the form below.</p>
+    <h2 class="subtitle">Phone</h2>
+    <p class="paragraph">Call us at <a class="link" href="tel:555-1234-5678">555-1234-5678</a>.</p>
+    <h2 class="subtitle">Email</h2>
+    <p class="paragraph">Send us an email at <a class="link" href="mailto:contact@example.com">contact@example.com</a>.</p>
+    <h2 class="subtitle">Contact Form</h2>
+    <form>
+      <label class="form-label" for="name">Name</label>
+      <input class="form-input" type="text" id="name" name="name" required>
+
+      <label class="form-label" for="email">Email</label>
+      <input class="form-input" type="email" id="email" name="email" required>
+
+      <label class="form-label" for="message">Message</label>
+      <textarea class="form-input" id="message" name="message" rows="6" required></textarea>
+
+      <button class="form-button" type="submit">Submit</button>
+    </form>
+  </body>
+</html>
